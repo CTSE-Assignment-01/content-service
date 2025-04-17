@@ -5,7 +5,7 @@ const cors = require("cors");
 const destinationRoutes = require("./routes/destination.route");
 
 // const mongoDB = "mongodb+srv://root:root@cluster0.spmcifx.mongodb.net/ctse";
-const mongoDB = "mongodb+srv://root:root@cluster0.u7ficrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const mongoDB = process.env.MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
