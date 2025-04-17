@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  name: nodejs-deployment  
+  labels:    
+    app: destinationservice
+spec:  
+  replicas: 1  
+  selector:    
+    matchLabels:
+      app: destinationservice
+  template:
+    metadata:
+      labels:
+        app: destinationservice
+    spec: 
+     containers:
+      - name: destinationservice
+        image: it21048500/ctse_destination_service
+        ports:
+        - containerPort: 4001
+        env:   
+        - name: JWT_SECRET
+          value: "MYSECRET"
+        - name: JWT_EXPIRES_IN
+          value: "24h"
+        - name: PORT
+          value: "4001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: destination-service
+  labels:
+    app: destinationservice
+spec:
+  type: NodePort
+  ports:
+  - port: 4001
+    protocol: TCP
+    targetPort: 4001
+    nodePort: 32125
+  selector:
+    app: destinationservice
