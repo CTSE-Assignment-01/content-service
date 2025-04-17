@@ -27,7 +27,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: it21048500/ctse_destination_service:latest
+        tags: it21568732/ctse_destination_service:latest
 
     - name: Copy files to EC2
       uses: appleboy/scp-action@v0.1.7
@@ -46,6 +46,6 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         script: |
           cd ~/content-service
-          docker pull it21048500/ctse_destination_service:latest
+          docker pull it21568732/ctse_destination_service:latest
           kubectl apply -f deployment.yml
           kubectl rollout restart deployment nodejs-deployment
