@@ -31,8 +31,10 @@ exports.protect = async (req, res, next) => {
     req.user = currentUser;
     next();
   } catch (error) {
+    console.log(error);
     return res
       .status(401)
       .json({ message: "Invalid token. Please log in again!" });
+      
   }
 };
