@@ -33,4 +33,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PROJECT_KEY: CTSE-Assignment-01_content-service
-          SONAR_ORGANIZATION: CTSE-Assignment-01
+          SONAR_ORGANIZATION: ctse-assignment-01
