@@ -32,5 +32,5 @@ jobs:
           projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: ctse-assignment-01_content-service
+          SONAR_PROJECT_KEY: content-service
           SONAR_ORGANIZATION: ctse-assignment-01
