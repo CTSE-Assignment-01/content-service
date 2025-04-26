@@ -16,7 +16,7 @@ spec:
     spec: 
      containers:
       - name: destinationservice
-        image: it21568732/ctse_destination_service
+        image: samitha2000/ctse_content_service
         ports:
         - containerPort: 4001
         env:   

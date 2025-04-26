@@ -12,8 +12,8 @@ router.get("/:id", destinationController.getDestinationById);
 
 // Protected routes for creating, updating, and deleting a destination
 // Use the 'protect' middleware to secure these routes
-router.post("/", protect, destinationController.createDestination);
-router.put("/:id", protect, destinationController.updateDestination);
-router.delete("/:id", protect, destinationController.deleteDestination);
+router.post("/", destinationController.createDestination);
+router.put("/:id", destinationController.updateDestination);
+router.delete("/:id", destinationController.deleteDestination);
 
 module.exports = router;
