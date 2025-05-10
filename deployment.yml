@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:  
-  name: nodejs-deployment  
-  labels:    
+metadata:
+  name: nodejs-deployment
+  labels:
     app: destinationservice
-spec:  
-  replicas: 1  
-  selector:    
+spec:
+  replicas: 1
+  selector:
     matchLabels:
       app: destinationservice
   template:
     metadata:
       labels:
         app: destinationservice
-    spec: 
-     containers:
+    spec:
+      containers:
       - name: destinationservice
         image: samitha2000/ctse_content_service
         ports:
         - containerPort: 4001
-        env:   
+        env:
         - name: JWT_SECRET
           value: "MYSECRET"
         - name: JWT_EXPIRES_IN
@@ -34,11 +34,10 @@ metadata:
   labels:
     app: destinationservice
 spec:
-  type: NodePort
-  ports:
-  - port: 4001
-    protocol: TCP
-    targetPort: 4001
-    nodePort: 32125
+  type: LoadBalancer
   selector:
     app: destinationservice
+  ports:
+  - protocol: TCP
+    port: 4001
+    targetPort: 4001

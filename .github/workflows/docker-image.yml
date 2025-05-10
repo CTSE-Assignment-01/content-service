@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
+    - name: Build the Docker image & Deploy to Azure
       run: docker build . --file Dockerfile --tag samitha2000/ctse_content_service
 
     - name: Log in to Docker Hub
@@ -23,3 +23,21 @@ jobs:
 
     - name: Push Image to Docker Hub
       run: docker push samitha2000/ctse_content_service
+
+    #  # Configure Azure CLI
+    # - name: Azure Login
+    #   uses: azure/login@v1
+    #   with:
+    #     creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    # # Set AKS context
+    # - name: Set AKS context
+    #   uses: azure/aks-set-context@v3
+    #   with:
+    #     creds: ${{ secrets.AZURE_CREDENTIALS }}
+    #     cluster-name: ctsecluster
+    #     resource-group: aksctse
+
+    # # Restart the deployment
+    # - name: Restart AKS deployment
+    #   run: kubectl rollout restart deployment combined-deployment
