@@ -9,7 +9,7 @@ const destinationSchema = new mongoose.Schema({
   departureLocation: {
     type: String,
     required: true,
-    default: "Colombo Fort",
+    default: "Colombo Fort 123",
     trim: true,
   },
   schedule: {
